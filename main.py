@@ -8,8 +8,10 @@ class TypingSpeedTest:
         self.root = root
         self.root.title('Typing Speed Test')
         self.root.geometry('700x700')
-        self.root.option_add("*Label.Font", "consolas 30")
-        self.root.option_add("*Button.Font", "consolas 30")
+        # self.root.option_add("*Label.Font", "consolas 30")
+        # self.root.option_add("*Button.Font", "consolas 30")
+        self.root.option_add("*font", "consolas 30")
+
         # Create the message label
         self.message_label = tk.Label(
             self.root,
@@ -65,27 +67,25 @@ class TypingSpeedTest:
 
     # Method to handle key presses during the test
     def type_key(self, event=None):
-        # If there are no labels to type, return
         if self.right_label is None:
             return
         try:
-            # If the typed letter matches the next letter in the right label
             if event.char.lower() == self.right_label.cget('text')[0].lower():
-                # Move the right label one character to the left
                 self.right_label.configure(
                     text=self.right_label.cget('text')[1:]
                 )
-                # Add the typed letter to the left label
                 self.left_label.configure(
                     text=self.left_label.cget('text') + event.char.lower()
                 )
-                # Update the current letter label
                 self.current_letter_label.configure(
                     text=self.right_label.cget('text')[0]
                 )
-        # If the typed letter is not a valid character
-        except tk.TclError:
-            pass
+        except tk.TclError as e:
+            if str(e) == 'bad event type or keysym "???"':
+                # Ignore this specific exception that can occur when pressing certain keys
+                pass
+            else:
+                raise e
 
     # Method to reset the labels for a new typing test
     def reset_writing_labels(self):
@@ -151,7 +151,8 @@ class TypingSpeedTest:
         self.result_label = tk.Label(
             self.root,
             text=f'Words per Minute: {amount_words}',
-            fg='black'
+            fg='black',
+            font='consolas 20 bold'
         )
         self.result_label.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
         self.result_button = tk.Button(
