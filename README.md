@@ -1,5 +1,5 @@
 # Typing Speed Test
-<p>This is a simple typing speed test program written in Python using the Tkinter library for the GUI. The program displays a random piece of text and the user has 60 seconds to type it as accurately and quickly as possible. At the end of the test, the program displays the number of words typed per minute.</p>How to use
+<p>This is a simple typing speed test program written in Python using the Tkinter library for the GUI. The program displays a random piece of text and the user has 60 seconds to type it as accurately and quickly as possible. At the end of the test, the program displays the number of words typed per minute. The application was created as part of the 100 Days of Code - The Complete Python Pro Bootcamp course challenge.</p>How to use
 <ol>
  <li>Install Python on your computer if it is not already installed.</li>
  <li>Download the <code>typing_speed_test.py</code> file.</li>
