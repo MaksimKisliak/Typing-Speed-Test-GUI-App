@@ -1,0 +1,12 @@
+# Typing Speed Test GUI App - Dependencies
+#
+# This project uses only Python standard library modules:
+# - tkinter (GUI framework)
+# - random (text selection)
+#
+# No external dependencies required!
+#
+# Note: On Linux, tkinter may need to be installed separately:
+#   Ubuntu/Debian: sudo apt-get install python3-tk
+#   Fedora: sudo dnf install python3-tkinter
+#   Arch: sudo pacman -S tk
